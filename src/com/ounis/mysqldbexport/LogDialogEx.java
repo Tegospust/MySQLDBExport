@@ -3,6 +3,7 @@
 package com.ounis.mysqldbexport;
 
 import com.ounis.ftools.FTools;
+import com.ounis.utils.Debug;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Frame;
@@ -17,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 /**
  *
@@ -45,18 +48,22 @@ public class LogDialogEx extends JPanel{
         
         btnOK = new JButton();
         btnOK.setText("OK");
+        // zród³o pobierania zasobów
+        // http://stackoverflow.com/questions/1096398/add-image-to-jar-java
+        // pobieramy zasoby dla przycisku
+        // tylko w ten sposób obrazek bêdzie dostêpny zarówno w runtime IDE Beansów
+        // jak i w odpalanym .JARze
+        URL imgurl = this.getClass().getResource("/Resources/accept.png");
+        Debug.printf(MainFrame.MAIN_CATEGORY, "%s\n", imgurl.toString());
+        btnOK.setIcon(new ImageIcon(imgurl));
         
-        String filename = "img\\accept.png";
-        if (FTools.fileExistsEx(filename))
-            btnOK.setIcon(new ImageIcon(filename));
         
-        
-        try {
-            System.out.printf("pe³na œcie¿ka: %s\n>", FTools.getPath(filename));
-        }
-        catch (Exception e){
-            System.err.println(e.getLocalizedMessage());
-        }
+//        try {
+//            System.out.printf("pe³na œcie¿ka: %s\n>", FTools.getPath(filename));
+//        }
+//        catch (Exception e){
+//            System.err.println(e.getLocalizedMessage());
+//        }
         
         
         btnOK.addActionListener(new ActionListener() {
@@ -96,6 +103,7 @@ public class LogDialogEx extends JPanel{
        //FramesUtils.centerWindow(dialog, -1, -1);
       // set title and show dialog
 
+      dialog.setResizable(false);
       dialog.setTitle("Coœ posz³o nie tak...");
       dialog.setVisible(true);
         

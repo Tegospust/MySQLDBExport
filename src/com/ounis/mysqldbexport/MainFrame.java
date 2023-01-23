@@ -15,7 +15,7 @@ import com.ounis.utils.MsgDialog;
 import com.ounis.utils.MsgDlg;
 
 
-import com.sun.webkit.event.WCKeyEvent;
+//import com.sun.webkit.event.WCKeyEvent;
 import java.awt.AWTEventMulticaster;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -79,6 +79,9 @@ public class MainFrame extends javax.swing.JFrame {
         
     }
     
+    class TestMsg extends Thread {
+        
+    }
     
      class ErrorMsg extends Thread {
         private String msg;
@@ -273,6 +276,8 @@ public class MainFrame extends javax.swing.JFrame {
         loadData();
         
         setTitle("MySQLDBExport");
+        setResizable(false);
+        
         
         edOutputFile.setText(genOutputFileName(edDataBase.getText()));
         

@@ -1,0 +1,1 @@
+java -Ddebug.MySQLDBExport -jar MySQLDBExport.jar
