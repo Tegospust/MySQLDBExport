@@ -48,6 +48,8 @@ import javax.swing.JPasswordField;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    private static final String PASS_TOOL_TIP = "Dwuklik ods³ania has³o";
+    
     
     public static final String MAIN_CATEGORY = "MySQLDBExport";
     
@@ -64,6 +66,8 @@ public class MainFrame extends javax.swing.JFrame {
     // obs³uga focusa na kontrolkach
     class LocalFocusListener implements FocusListener {
 
+        
+        
         @Override
         public void focusGained(FocusEvent e) {
             
@@ -149,7 +153,7 @@ public class MainFrame extends javax.swing.JFrame {
                                       
                 }
                 if (e.getSource().equals(edPass) || e.getSource().equals(jLabel2))
-                {
+                    {
                     char c = edPass.getEchoChar();
                     if (c == PASS_CHAR)
                         edPass.setEchoChar(NON_PASS_CHAR);
@@ -375,6 +379,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+//    tworzenie nazwy pliku tekstowego z eksportem danych
     private String genOutputFileName(String basePrefix)
     {
         Calendar cal = new GregorianCalendar();
@@ -744,6 +749,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        edPass.setToolTipText(PASS_TOOL_TIP);
         edPass.setEchoChar('*');
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -225,6 +225,9 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="edPass">
           <Properties>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="PASS_TOOL_TIP" type="code"/>
+            </Property>
             <Property name="echoChar" type="char" value="*"/>
           </Properties>
         </Component>
